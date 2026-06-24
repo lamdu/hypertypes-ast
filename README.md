@@ -1,4 +1,6 @@
-# hypertypes: Types parameterised by hypertypes
+# hypertypes-ast: Typed ASTs with hypertypes
+
+`hypertypes-ast` provides AST-oriented utilities, unification, and type inference built on the core `hypertypes` package.
 
 Hypertypes enable constructing rich recursive types from individual components, and processing them generically with type classes.
 
@@ -251,7 +253,7 @@ type p :# q = (GetHyperType p) ('AHyperType q)
 -- AHyperType is DataKinds syntax for using AHyperType in types
 ```
 
-The `hypertypes` library provides:
+Together, `hypertypes` and `hypertypes-ast` provide:
 
 * Variants of standard classes like `Functor` for hypertypes with derivations.
   (Unlike in `multirec`'s `HFunctor`, only the actual child node types of each node need to be handled)

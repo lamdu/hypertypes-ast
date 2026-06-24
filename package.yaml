@@ -1,6 +1,6 @@
-name: hypertypes
+name: hypertypes-ast
 version: 0.3.0
-github: "lamdu/hypertypes"
+github: "lamdu/hypertypes-ast"
 license: BSD3
 author: "Yair Chuchem"
 maintainer: "yairchu@gmail.com"
@@ -10,22 +10,22 @@ extra-source-files:
 - README.md
 - ChangeLog.md
 
-synopsis: Typed ASTs
+synopsis: AST, unification, and type inference utilities for hypertypes
 category: Algorithms, Compilers/Interpreters, Language, Logic, Unification
 
-description: Please see the README on GitHub at <https://github.com/lamdu/hypertypes#readme>
+description: Please see the README on GitHub at <https://github.com/lamdu/hypertypes-ast#readme>
 
 dependencies:
 - base >= 4.9 && <5
 - constraints
 - containers
 - generic-constraints
-- generic-data
 - lattices
 - lens
 - monad-st
 - mtl
 - pretty
+- hypertypes
 
 default-extensions:
 - ConstraintKinds
@@ -59,7 +59,6 @@ library:
   source-dirs: src
   other-modules:
   - Hyper.Internal.Prelude
-  - Hyper.TH.Internal.Utils
   dependencies:
   - array
   - base-compat
@@ -69,14 +68,13 @@ library:
   - show-combinators
   - template-haskell
   - transformers
-  - th-abstraction >= 0.6
   ghc-options:
   - -Wnoncanonical-monad-instances
   - -Wincomplete-record-updates
   - -Wincomplete-uni-patterns
 
 tests:
-  hypertypes-test:
+  hypertypes-ast-test:
     main: Spec.hs
     source-dirs: test
     when:
@@ -88,13 +86,15 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
+    - generic-data
     - hypertypes
+    - hypertypes-ast
     - tasty
     - tasty-hunit
     - text
 
 benchmarks:
-  hypertypes-bench:
+  hypertypes-ast-bench:
     main: Benchmark.hs
     source-dirs: test
     other-modules:
@@ -109,4 +109,6 @@ benchmarks:
     - -Wincomplete-uni-patterns
     dependencies:
     - criterion
+    - generic-data
     - hypertypes
+    - hypertypes-ast

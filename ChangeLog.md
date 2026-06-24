@@ -1,4 +1,4 @@
-# Changelog for hypertypes
+# Changelog for hypertypes-ast
 
 ## Unreleased changes
 

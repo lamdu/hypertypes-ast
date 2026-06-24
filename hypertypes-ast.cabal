@@ -1,16 +1,16 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.38.1.
+-- This file has been generated from package.yaml by hpack version 0.38.0.
 --
 -- see: https://github.com/sol/hpack
 
-name:           hypertypes
+name:           hypertypes-ast
 version:        0.3.0
-synopsis:       Typed ASTs
-description:    Please see the README on GitHub at <https://github.com/lamdu/hypertypes#readme>
+synopsis:       AST, unification, and type inference utilities for hypertypes
+description:    Please see the README on GitHub at <https://github.com/lamdu/hypertypes-ast#readme>
 category:       Algorithms, Compilers/Interpreters, Language, Logic, Unification
-homepage:       https://github.com/lamdu/hypertypes#readme
-bug-reports:    https://github.com/lamdu/hypertypes/issues
+homepage:       https://github.com/lamdu/hypertypes-ast#readme
+bug-reports:    https://github.com/lamdu/hypertypes-ast/issues
 author:         Yair Chuchem
 maintainer:     yairchu@gmail.com
 copyright:      2018 Yair Chuchem
@@ -23,30 +23,10 @@ extra-source-files:
 
 source-repository head
   type: git
-  location: https://github.com/lamdu/hypertypes
+  location: https://github.com/lamdu/hypertypes-ast
 
 library
   exposed-modules:
-      Hyper
-      Hyper.Class.Apply
-      Hyper.Class.Context
-      Hyper.Class.Foldable
-      Hyper.Class.Functor
-      Hyper.Class.HasPlain
-      Hyper.Class.Monad
-      Hyper.Class.Morph
-      Hyper.Class.Nodes
-      Hyper.Class.Optic
-      Hyper.Class.Pointed
-      Hyper.Class.Recursive
-      Hyper.Class.Traversable
-      Hyper.Class.ZipMatch
-      Hyper.Combinator.Ann
-      Hyper.Combinator.ANode
-      Hyper.Combinator.Compose
-      Hyper.Combinator.Flip
-      Hyper.Combinator.Func
-      Hyper.Diff
       Hyper.Infer
       Hyper.Infer.Blame
       Hyper.Infer.Class
@@ -54,7 +34,6 @@ library
       Hyper.Infer.InferOf
       Hyper.Infer.Result
       Hyper.Infer.ScopeLevel
-      Hyper.Recurse
       Hyper.Syntax
       Hyper.Syntax.App
       Hyper.Syntax.FuncType
@@ -68,20 +47,6 @@ library
       Hyper.Syntax.TypedLam
       Hyper.Syntax.TypeSig
       Hyper.Syntax.Var
-      Hyper.TH.Apply
-      Hyper.TH.Context
-      Hyper.TH.Foldable
-      Hyper.TH.Functor
-      Hyper.TH.HasPlain
-      Hyper.TH.Morph
-      Hyper.TH.Nodes
-      Hyper.TH.Pointed
-      Hyper.TH.Traversable
-      Hyper.TH.ZipMatch
-      Hyper.Type
-      Hyper.Type.Functor
-      Hyper.Type.Prune
-      Hyper.Type.Pure
       Hyper.Unify
       Hyper.Unify.Binding
       Hyper.Unify.Binding.Save
@@ -97,7 +62,6 @@ library
       Hyper.Unify.Term
   other-modules:
       Hyper.Internal.Prelude
-      Hyper.TH.Internal.Utils
   hs-source-dirs:
       src
   default-extensions:
@@ -129,7 +93,7 @@ library
     , containers
     , deepseq
     , generic-constraints
-    , generic-data
+    , hypertypes
     , lattices
     , lens
     , monad-st
@@ -137,11 +101,10 @@ library
     , pretty
     , show-combinators
     , template-haskell
-    , th-abstraction >=0.6
     , transformers
   default-language: Haskell2010
 
-test-suite hypertypes-test
+test-suite hypertypes-ast-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
@@ -157,11 +120,9 @@ test-suite hypertypes-test
       LangBTest
       LangC
       LangD
-      PlainTest
-      PolyKindsTH
       ReadMeExamples
       TypeLang
-      Paths_hypertypes
+      Paths_hypertypes_ast
   hs-source-dirs:
       test
   default-extensions:
@@ -191,6 +152,7 @@ test-suite hypertypes-test
     , generic-constraints
     , generic-data
     , hypertypes
+    , hypertypes-ast
     , lattices
     , lens
     , monad-st
@@ -201,7 +163,7 @@ test-suite hypertypes-test
     , text
   default-language: Haskell2010
 
-benchmark hypertypes-bench
+benchmark hypertypes-ast-bench
   type: exitcode-stdio-1.0
   main-is: Benchmark.hs
   other-modules:
@@ -239,6 +201,7 @@ benchmark hypertypes-bench
     , generic-constraints
     , generic-data
     , hypertypes
+    , hypertypes-ast
     , lattices
     , lens
     , monad-st
